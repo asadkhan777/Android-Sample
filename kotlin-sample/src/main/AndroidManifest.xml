@@ -32,9 +32,9 @@
 
     <!-- Firebase Listener -->
 
-    <service android:name="com.moengage.firebase.MoEFireBaseMessagingService">
+    <service android:name=".FirebaseReceiver">
       <intent-filter>
-        <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+        <action android:name="com.google.firebase.MESSAGING_EVENT" />
       </intent-filter>
     </service>
 
@@ -48,9 +48,6 @@
       <meta-data
           android:name="android.support.PARENT_ACTIVITY"
           android:value="com.moengage.sample.kotlin.MainActivity" />
-      <meta-data
-          android:name="showInApp"
-          android:value="false" />
     </activity>
 
   </application>
