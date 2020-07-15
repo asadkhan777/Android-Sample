@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.moe.pushlibrary.MoEHelper
 import com.moengage.core.Properties
+import com.moengage.pushbase.MoEPushHelper
 import java.util.*
 
 
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     setContentView(R.layout.activity_main)
     val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
     setSupportActionBar(toolbar)
-
+    MoEPushHelper.getInstance().logNotificationClick(applicationContext, intent)
 
     //building event attributes
     val properties = Properties()

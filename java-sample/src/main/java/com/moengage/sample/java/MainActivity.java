@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import com.moe.pushlibrary.MoEHelper;
 import com.moengage.core.Properties;
+import com.moengage.pushbase.MoEPushHelper;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity{
@@ -16,6 +17,8 @@ public class MainActivity extends AppCompatActivity{
 
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
+
+    MoEPushHelper.getInstance().logNotificationClick(getApplicationContext(), getIntent());
 
     //building event attributes
     Properties properties = new Properties()

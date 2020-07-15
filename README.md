@@ -55,3 +55,13 @@ Once you have installed the SDK follow the below documentation to integrate the 
 |:-----------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 |       [master](https://github.com/moengage/Android-Sample/tree/master)      | Integration Sample where MoEngage SDK handles push token registration and push display.                                                                       |
 | [app_handling_push](https://github.com/moengage/Android-Sample/tree/app_handling_push) | Integration Sample where client app handles the push token registration, push display and passes a callback to the SDK for notification received and clicked. |
+
+## Implementation Description
+
+- Refer to [`FirebaseReceiver.java`](https://github.com/moengage/Android-Sample/blob/app_handling_push/java-sample/src/main/java/com/moengage/sample/java/FirebaseReceiver.java) or [`FirebaseReceiver.kt`](https://github.com/moengage/Android-Sample/blob/app_handling_push/kotlin-sample/src/main/java/com/moengage/sample/kotlin/FirebaseReceiver.kt) for implementation reference of Firebase Cloud Messaging(FCM)
+- Refer to [`CustomPushMessageListener.java`](https://github.com/moengage/Android-Sample/blob/app_handling_push/java-sample/src/main/java/com/moengage/sample/java/CustomPushMessageListener.java) or [`CustomPushMessageListener.kt`](https://github.com/moengage/Android-Sample/blob/app_handling_push/kotlin-sample/src/main/java/com/moengage/sample/kotlin/CustomPushMessageListener.kt) for implementation reference of Push-Amp and Push-Amp+
+  - Callback for Notification Received - Override `onNotificationReceived()` to get a callback for Push-Amp payload.
+  - Disable Notification Display from MoEngage - Override `isNotificationRequired()` and return false.
+  - Handle redirection for Push-Amp+ - Override `onHandleRedirection()` for handling redirection for Push Amp+ campaigns.
+- `SampleNotificationBuilder.java` or `SampleNotificationBuilder.kt` has sample implementation of how notification can be built and how silent push, impression should be passed to SDK.
+- Refer to `onCreate()` of [`MainActivity.java`](https://github.com/moengage/Android-Sample/blob/app_handling_push/java-sample/src/main/java/com/moengage/sample/java/MainActivity.java) or [`MainActivity.kt`](https://github.com/moengage/Android-Sample/blob/app_handling_push/kotlin-sample/src/main/java/com/moengage/sample/kotlin/MainActivity.kt) for implementation of how to pass notification click to SDK.
